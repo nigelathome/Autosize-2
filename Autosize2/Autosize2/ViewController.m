@@ -24,10 +24,10 @@ static const CGFloat spacing = 20;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+//     Do any additional setup after loading the view, typically from a nib.
     UIApplication *app = [UIApplication sharedApplication];
     UIInterfaceOrientation currentOrientation = app.statusBarOrientation;
-    [self doLayoutForOrientation:currentOrientation];
+    [self doUIInterfaceOrientationPortraitLayout];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,28 +49,6 @@ static const CGFloat spacing = 20;
 }
 
 - (void)doUIInterfaceOrientationPortraitLayout {
-//    // get the basic view on this single view project
-//    CGRect bounds = self.view.bounds;
-//    
-//    // caculate the width n height of contentView
-//    CGFloat contentWidth = CGRectGetWidth(bounds) - (2 * spacing);
-//    CGFloat contentHeight = CGRectGetHeight(bounds) / 2;
-//    
-//    // build the contentView by constructing the frame of it
-//    self.contentView.frame = CGRectMake(2 * spacing, 2 * spacing, contentWidth, contentHeight);
-//    
-//    // caculate buttons position
-//    CGFloat buttonRow1x = spacing;
-//    CGFloat buttonRow1y = contentHeight + (2 * spacing);
-//    CGFloat buttonRow2x = spacing;
-//    CGFloat buttonRow2y = contentHeight + (3 * spacing) + buttonHeight;
-//    
-//    // build the buttons by constructing the frame of them
-//    self.actionButton1.frame = CGRectMake(buttonRow1x, buttonRow1y, buttonWidth, buttonHeight);
-//    self.actionButton2.frame = CGRectMake(buttonRow1x + buttonWidth, buttonRow1y, buttonWidth, buttonHeight);
-//    self.actionButton3.frame = CGRectMake(buttonRow2x, buttonRow2y, buttonWidth, buttonHeight);
-//    self.actionButton4.frame = CGRectMake(buttonRow2x + buttonWidth, buttonRow2y, buttonWidth, buttonHeight);
-    
     CGRect b = self.view.bounds;
     CGFloat contentWidth = CGRectGetWidth(b) - (2 * spacing);
     CGFloat contentHeight = CGRectGetHeight(b) - (4 * spacing) -
@@ -92,19 +70,22 @@ static const CGFloat spacing = 20;
 }
 
 - (void)doUIInterfaceOrientationLandscapeLayout {
-    CGRect b = self.view.bounds;
-    CGFloat contentWidth = CGRectGetWidth(b) - buttonWidth - (3 * spacing);
-    CGFloat contentHeight = CGRectGetHeight(b) - (2 * spacing);
+    // layout contentView controls
+    CGRect bounds = self.view.bounds;
+    CGFloat contentWidth = (CGRectGetWidth(bounds) - (2 * spacing)) / 5.0f * 4.0f;
+    CGFloat contentHeight = CGRectGetHeight(bounds) - (2 * spacing);
     self.contentView.frame = CGRectMake(spacing, spacing,
                                         contentWidth, contentHeight);
-    CGFloat buttonX = CGRectGetWidth(b) - buttonWidth - spacing;
+    
+    // layout 4 buttons seperately
+    CGFloat buttonX = contentHeight + spacing + spacing;
     CGFloat buttonRow1y = spacing;
-    CGFloat buttonRow4y = CGRectGetHeight(b) - buttonHeight - spacing;
+    CGFloat buttonRow4y = CGRectGetHeight(bounds) - buttonHeight - spacing;
     CGFloat buttonRow2y = buttonRow1y + floor((buttonRow4y - buttonRow1y)
                                               * 0.333);
     CGFloat buttonRow3y = buttonRow1y + floor((buttonRow4y - buttonRow1y)
                                               * 0.667);
-    self.actionButton1.frame = CGRectMake(buttonX, buttonRow1y,
+    self.actionButton1.frame = CGRectMake(0, 0,
                                           buttonWidth, buttonHeight);
     self.actionButton2.frame = CGRectMake(buttonX, buttonRow2y,
                                           buttonWidth, buttonHeight);
