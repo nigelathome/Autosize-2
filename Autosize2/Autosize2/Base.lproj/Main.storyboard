@@ -46,6 +46,13 @@
                             <constraint firstItem="ZBG-Qy-l0N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZSq-mm-7sr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actionButton1" destination="M2p-Fi-xGZ" id="wjA-0G-I6u"/>
+                        <outlet property="actionButton2" destination="9gq-7Z-Jfl" id="Fxh-Ob-96Y"/>
+                        <outlet property="actionButton3" destination="zmh-Xg-6zP" id="ex6-80-fkL"/>
+                        <outlet property="actionButton4" destination="eRf-EQ-Kv3" id="dX4-74-lUK"/>
+                        <outlet property="contentView" destination="ZBG-Qy-l0N" id="yFm-ab-19R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

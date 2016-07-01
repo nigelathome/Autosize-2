@@ -300,6 +300,7 @@
 				9104E2811D2607CE0059AB48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
