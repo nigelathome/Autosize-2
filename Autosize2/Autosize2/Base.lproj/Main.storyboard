@@ -18,26 +18,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-Nd-6GJ">
-                                <rect key="frame" x="20" y="15" width="560" height="442"/>
-                                <color key="backgroundColor" red="0.22506919503211975" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xL6-gY-N15">
                                 <rect key="frame" x="56" y="484" width="76" height="30"/>
                                 <state key="normal" title="Action One"/>
+                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="477" y="47" width="76" height="30"/>
+                                </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9p-Q2-VMR">
                                 <rect key="frame" x="56" y="539" width="76" height="30"/>
                                 <state key="normal" title="Action Two"/>
+                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="477" y="134" width="76" height="30"/>
+                                </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmF-3c-GmH">
                                 <rect key="frame" x="462" y="539" width="80" height="30"/>
                                 <state key="normal" title="Action Four"/>
+                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="477" y="306" width="80" height="30"/>
+                                </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua2-LV-Bl3">
                                 <rect key="frame" x="458" y="484" width="88" height="30"/>
                                 <state key="normal" title="Action Three"/>
+                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="477" y="216" width="88" height="30"/>
+                                </variation>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-Nd-6GJ">
+                                <rect key="frame" x="20" y="15" width="560" height="442"/>
+                                <color key="backgroundColor" red="0.22506919503211975" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -50,19 +62,59 @@
                             <constraint firstItem="w9p-Q2-VMR" firstAttribute="top" secondItem="xL6-gY-N15" secondAttribute="bottom" constant="25" id="Ejl-YN-ukU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NmF-3c-GmH" secondAttribute="bottom" constant="31" id="GrQ-Mu-vUh"/>
                             <constraint firstItem="NmF-3c-GmH" firstAttribute="centerY" secondItem="ua2-LV-Bl3" secondAttribute="centerY" constant="55" id="HlG-TF-mDs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="p0r-Nd-6GJ" secondAttribute="bottom" constant="20" id="P8P-Qm-czj"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="w9p-Q2-VMR" secondAttribute="bottom" constant="31" id="PYs-oV-5t1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ua2-LV-Bl3" secondAttribute="trailing" constant="34" id="QDI-sU-kl2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p0r-Nd-6GJ" secondAttribute="trailing" constant="113" id="Rwr-pg-rKl">
+                                <variation key="heightClass=compact" constant="133"/>
+                            </constraint>
                             <constraint firstItem="w9p-Q2-VMR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="36" id="TQV-29-S4E"/>
                             <constraint firstItem="ua2-LV-Bl3" firstAttribute="centerX" secondItem="NmF-3c-GmH" secondAttribute="centerX" id="Tke-IO-b4y"/>
                             <constraint firstItem="p0r-Nd-6GJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="15" id="jmh-Ae-igP"/>
+                            <constraint firstItem="p0r-Nd-6GJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="kQq-GM-rf4"/>
+                            <constraint firstItem="p0r-Nd-6GJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="ujE-Q6-U3n">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="p0r-Nd-6GJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="yzR-3U-2J6"/>
                             <constraint firstItem="xL6-gY-N15" firstAttribute="trailing" secondItem="w9p-Q2-VMR" secondAttribute="trailing" id="zkc-Ml-biJ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Rwr-pg-rKl"/>
+                                <exclude reference="kQq-GM-rf4"/>
+                                <exclude reference="ujE-Q6-U3n"/>
+                                <exclude reference="P8P-Qm-czj"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="6fr-X2-bfD"/>
+                                <include reference="Rwr-pg-rKl"/>
+                                <exclude reference="jmh-Ae-igP"/>
+                                <include reference="kQq-GM-rf4"/>
+                                <include reference="ujE-Q6-U3n"/>
+                                <exclude reference="yzR-3U-2J6"/>
+                                <exclude reference="GrQ-Mu-vUh"/>
+                                <include reference="P8P-Qm-czj"/>
+                                <exclude reference="PYs-oV-5t1"/>
+                                <exclude reference="17D-uD-WL7"/>
+                                <exclude reference="zkc-Ml-biJ"/>
+                                <exclude reference="2FS-lj-ena"/>
+                                <exclude reference="Ejl-YN-ukU"/>
+                                <exclude reference="TQV-29-S4E"/>
+                                <exclude reference="7iw-KB-xcn"/>
+                                <exclude reference="QDI-sU-kl2"/>
+                                <exclude reference="Tke-IO-b4y"/>
+                                <exclude reference="87M-NX-hBU"/>
+                                <exclude reference="EUe-oQ-pL2"/>
+                                <exclude reference="HlG-TF-mDs"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="377"/>
+            <point key="canvasLocation" x="300" y="376.5"/>
         </scene>
     </scenes>
 </document>
