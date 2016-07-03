@@ -25,9 +25,9 @@ static const CGFloat spacing = 20;
 - (void)viewDidLoad {
     [super viewDidLoad];
 //     Do any additional setup after loading the view, typically from a nib.
-    UIApplication *app = [UIApplication sharedApplication];
-    UIInterfaceOrientation currentOrientation = app.statusBarOrientation;
-    [self doUIInterfaceOrientationPortraitLayout];
+//    UIApplication *app = [UIApplication sharedApplication];
+//    UIInterfaceOrientation currentOrientation = app.statusBarOrientation;
+//    [self doLayoutForOrientation:currentOrientation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,16 +49,19 @@ static const CGFloat spacing = 20;
 }
 
 - (void)doUIInterfaceOrientationPortraitLayout {
-    CGRect b = self.view.bounds;
-    CGFloat contentWidth = CGRectGetWidth(b) - (2 * spacing);
-    CGFloat contentHeight = CGRectGetHeight(b) - (4 * spacing) -
-    (2 * buttonHeight);
+    // layout contentView controls
+    CGRect bounds = self.view.bounds;
+    CGFloat contentWidth = CGRectGetWidth(bounds) - (2 * spacing);
+    CGFloat contentHeight = (CGRectGetHeight(bounds) + (2 * spacing)) / 4.0f * 2.0f;
     self.contentView.frame = CGRectMake(spacing, spacing,
                                         contentWidth, contentHeight);
-    CGFloat buttonRow1y = contentHeight + (2 * spacing);
+    
+    // layout 4 buttons seperately
+    CGFloat gap = (CGRectGetWidth(bounds) - 2 * buttonWidth) / 3;
+    CGFloat buttonRow1y = gap;
     CGFloat buttonRow2y = buttonRow1y + buttonHeight +  spacing;
-    CGFloat buttonCol1x = spacing;
-    CGFloat buttonCol2x = CGRectGetWidth(b) - buttonWidth - spacing;
+    CGFloat buttonCol1x = gap;
+    CGFloat buttonCol2x = CGRectGetWidth(bounds) - buttonWidth - 2 * gap;
     self.actionButton1.frame = CGRectMake(buttonCol1x, buttonRow1y,
                                           buttonWidth, buttonHeight);
     self.actionButton2.frame = CGRectMake(buttonCol2x, buttonRow1y,
@@ -72,20 +75,22 @@ static const CGFloat spacing = 20;
 - (void)doUIInterfaceOrientationLandscapeLayout {
     // layout contentView controls
     CGRect bounds = self.view.bounds;
-    CGFloat contentWidth = (CGRectGetWidth(bounds) - (2 * spacing)) / 5.0f * 4.0f;
+    CGFloat contentWidth = (CGRectGetWidth(bounds) - (2 * spacing)) / 5.0f * 3.0f;
     CGFloat contentHeight = CGRectGetHeight(bounds) - (2 * spacing);
     self.contentView.frame = CGRectMake(spacing, spacing,
                                         contentWidth, contentHeight);
     
     // layout 4 buttons seperately
-    CGFloat buttonX = contentHeight + spacing + spacing;
-    CGFloat buttonRow1y = spacing;
+    CGFloat gap = (bounds.size.width - 2 * buttonWidth) / 3;
+    CGFloat buttonX = spacing + contentWidth;
+    CGFloat buttonRow1y = gap;
     CGFloat buttonRow4y = CGRectGetHeight(bounds) - buttonHeight - spacing;
     CGFloat buttonRow2y = buttonRow1y + floor((buttonRow4y - buttonRow1y)
                                               * 0.333);
     CGFloat buttonRow3y = buttonRow1y + floor((buttonRow4y - buttonRow1y)
                                               * 0.667);
-    self.actionButton1.frame = CGRectMake(0, 0,
+    
+    self.actionButton1.frame = CGRectMake(300, 300,
                                           buttonWidth, buttonHeight);
     self.actionButton2.frame = CGRectMake(buttonX, buttonRow2y,
                                           buttonWidth, buttonHeight);
@@ -93,7 +98,6 @@ static const CGFloat spacing = 20;
                                           buttonWidth, buttonHeight);
     self.actionButton4.frame = CGRectMake(buttonX, buttonRow4y,
                                           buttonWidth, buttonHeight);
-
 }
 
 @end
